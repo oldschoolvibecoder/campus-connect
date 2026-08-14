@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b20">
+  <title>Campus Connect | Student Command Center</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <a class="brand" href="#dashboard" data-tab="dashboard"><span class="brand-mark">C</span><span>Campus<span>Connect</span></span></a>
+      <nav class="nav-list" aria-label="Workspace">
+        <button class="nav-link active" data-tab="dashboard"><span>◈</span> Dashboard</button>
+        <button class="nav-link" data-tab="marketplace"><span>◇</span> Marketplace</button>
+        <button class="nav-link" data-tab="notes"><span>▤</span> Notes</button>
+        <button class="nav-link" data-tab="connect"><span>◎</span> Connect</button>
+        <button class="nav-link" data-tab="study"><span>⌘</span> Study Partners</button>
+        <button class="nav-link" data-tab="events"><span>◷</span> Events</button>
+        <button class="nav-link" data-tab="profile"><span>◉</span> Profile</button>
+      </nav>
+      <div class="sidebar-footer"><p class="eyebrow">YOUR CAMPUS</p><strong>Northbridge Engineering</strong><span class="online-dot">Live network</span></div>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <button class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false">☰</button>
+        <div class="breadcrumb"><span id="sectionKicker">Workspace</span><strong id="sectionTitle">Dashboard</strong></div>
+        <div class="header-actions"><button class="icon-button" id="notificationButton" aria-label="Show notifications">◌<i></i></button><button class="profile-chip" id="loginButton"><span class="avatar">AS</span><span id="accountLabel">Sign in</span></button></div>
+      </header>
+
+      <div class="content">
+        <section class="tab-panel active" id="dashboard" aria-labelledby="dashboard-heading">
+          <div class="welcome-grid">
+            <div class="welcome-copy"><p class="eyebrow violet">CAMPUS PULSE · AUG 2026</p><h1 id="dashboard-heading">A smarter way to find your <em>people.</em></h1><p>One command center for the study groups, gear, notes, and opportunities moving across campus today.</p><div class="hero-actions"><button class="primary-button" data-jump="connect">Find your circle <span>→</span></button><button class="text-button" data-jump="marketplace">Explore marketplace</button></div></div>
+            <div class="pulse-stage" aria-label="Campus Pulse visualization showing connected campus nodes"><div class="pulse-core"><span>Campus</span><strong>Pulse</strong></div><span class="orbit orbit-one"></span><span class="orbit orbit-two"></span><span class="node node-a">⌁</span><span class="node node-b">✦</span><span class="node node-c">⌘</span><span class="node node-d">◉</span><span class="pulse-label label-a">42 online</span><span class="pulse-label label-b">8 study rooms</span></div>
+          </div>
+          <div class="stats-grid" aria-label="Campus statistics"><article><span class="stat-symbol violet-bg">↗</span><div><strong id="itemStat">—</strong><span>active listings</span></div></article><article><span class="stat-symbol cyan-bg">⌘</span><div><strong id="studyStat">—</strong><span>study circles open</span></div></article><article><span class="stat-symbol orange-bg">◷</span><div><strong>03</strong><span>events this week</span></div></article><article><span class="stat-symbol pink-bg">◎</span><div><strong>18</strong><span>new connections</span></div></article></div>
+          <div class="dashboard-columns"><section class="surface recent-listings"><div class="section-head"><div><p class="eyebrow">JUST IN</p><h2>Marketplace signals</h2></div><button class="text-button" data-jump="marketplace">View all →</button></div><div id="dashboardItems" class="mini-list"><div class="skeleton line"></div><div class="skeleton line"></div></div></section><section class="surface upcoming"><div class="section-head"><div><p class="eyebrow">CALENDAR</p><h2>Next up</h2></div><button class="text-button" data-jump="events">All events →</button></div><div id="dashboardEvents" class="event-list"></div></section></div>
+        </section>
+
+        <section class="tab-panel" id="marketplace" aria-labelledby="marketplace-heading">
+          <div class="section-intro"><div><p class="eyebrow violet">CAMPUS EXCHANGE</p><h1 id="marketplace-heading">Marketplace</h1><p>Useful things, kept in the engineering community.</p></div><button class="primary-button" id="openItemModal">+ Post a listing</button></div>
+          <div class="toolbar"><label class="search-box"><span>⌕</span><input id="itemSearch" type="search" placeholder="Search gear, books, components…"></label><div class="filter-chips" id="itemFilters" aria-label="Filter listings"><button class="filter-chip active" data-filter="All">All</button><button class="filter-chip" data-filter="Electronics">Electronics</button><button class="filter-chip" data-filter="Books">Books</button><button class="filter-chip" data-filter="Other">Other</button></div></div>
+          <p class="result-count" id="itemResultCount" aria-live="polite">Loading listings…</p><div id="itemList" class="listing-grid" aria-live="polite"></div>
+        </section>
+
+        <section class="tab-panel" id="notes" aria-labelledby="notes-heading"><div class="section-intro"><div><p class="eyebrow violet">KNOWLEDGE EXCHANGE</p><h1 id="notes-heading">Notes vault</h1><p>Clear notes from students who have already solved it once.</p></div><button class="primary-button" id="openNoteModal">+ Share notes</button></div><div class="notes-layout"><section class="surface note-feature"><p class="eyebrow orange">TRENDING THIS WEEK</p><h2>Signals & Systems<br><em>cheat sheets</em></h2><p>Four well-structured revision guides, annotated by students after the midterm.</p><button class="text-button" id="browseNotes">Browse collection →</button></section><div id="notesList" class="notes-list"></div></div></section>
+
+        <section class="tab-panel" id="connect" aria-labelledby="connect-heading"><div class="section-intro"><div><p class="eyebrow violet">YOUR PEOPLE</p><h1 id="connect-heading">Connect</h1><p>Find collaborators outside your usual lab bench.</p></div></div><div class="connection-banner"><span>✦</span><div><strong>Connection sprint</strong><p>Meet two people working in your orbit this week.</p></div><button class="secondary-button" id="connectRandom">Introduce me</button></div><div id="connectionsList" class="people-grid"></div></section>
+
+        <section class="tab-panel" id="study" aria-labelledby="study-heading"><div class="section-intro"><div><p class="eyebrow violet">FOCUS TOGETHER</p><h1 id="study-heading">Study partners</h1><p>Find the right room, rhythm, and people for the hard topics.</p></div><button class="primary-button" id="openStudyModal">+ Start a circle</button></div><div id="studyList" class="study-grid" aria-live="polite"></div></section>
+
+        <section class="tab-panel" id="events" aria-labelledby="events-heading"><div class="section-intro"><div><p class="eyebrow violet">ON CAMPUS</p><h1 id="events-heading">Events</h1><p>Make room for the moments that happen between lectures.</p></div></div><div id="eventsList" class="events-grid"></div></section>
+
+        <section class="tab-panel" id="profile" aria-labelledby="profile-heading"><div class="profile-hero surface"><span class="large-avatar" id="profileInitials">AS</span><div><p class="eyebrow violet">STUDENT PROFILE</p><h1 id="profileName">Guest student</h1><p id="profileMeta">Sign in to shape your Campus Connect workspace.</p></div><button class="secondary-button" id="profileAction">Sign in</button></div><div class="profile-grid"><section class="surface"><p class="eyebrow">ACTIVITY</p><h2>Your campus footprint</h2><div class="activity-row"><strong id="profileListings">0</strong><span>marketplace listings</span></div><div class="activity-row"><strong id="profileResources">0</strong><span>resources shared</span></div><div class="activity-row"><strong id="profileConnections">0</strong><span>connections</span></div><div class="activity-row"><strong id="profileCircles">0</strong><span>circles started</span></div></section><section class="surface"><p class="eyebrow">ABOUT</p><h2>Your student card</h2><p class="profile-bio" id="profileBio">Your skills, interests, and campus story will appear here.</p><div class="profile-tags" id="profileTags"></div><label class="toggle-row">Email digest <input type="checkbox" id="digestToggle" checked><span></span></label><label class="toggle-row">Event reminders <input type="checkbox" id="reminderToggle" checked><span></span></label></section></div></section>
+      </div>
+    </main>
+  </div>
+
+  <dialog id="appModal" class="modal"><form method="dialog" id="modalForm"><div class="modal-head"><div><p class="eyebrow violet" id="modalKicker">CAMPUS CONNECT</p><h2 id="modalTitle">Sign in</h2></div><button class="close-button" value="cancel" aria-label="Close dialog">×</button></div><div id="modalFields"></div><p class="form-error" id="formError" role="alert"></p><div class="modal-actions"><button class="secondary-button" value="cancel">Cancel</button><button class="primary-button" type="submit" id="modalSubmit">Continue</button></div></form></dialog>
+  <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+  <script src="js/app.js"></script>
+</body>
+</html>
